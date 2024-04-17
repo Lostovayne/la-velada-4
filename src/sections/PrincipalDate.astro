@@ -1,6 +1,4 @@
-<section
-  class="mt-32 mx-auto flex flex-col justify-center items-center text-center text-primary"
->
+<section class="mt-32 mx-auto flex flex-col justify-center items-center text-center text-primary">
   <h2 class="uppercase text-5xl font-semibold">
     4 de marzo<span aria-hidden="true" class="hidden md:inline mx-1">•</span>
     <br aria-hidden class="block md:hidden" />
@@ -8,13 +6,12 @@
       <script is:inline>
         const END_DATE = 1709575200000;
         const d = new Date(END_DATE);
-
         const date = d.toLocaleTimeString("es", {
           hour: "2-digit",
           minute: "2-digit",
         });
-        // get current timezone
 
+        // get current timezone
         const tzOffset = d.getTimezoneOffset() / 60;
         const diff = Math.round(tzOffset * -1.5);
         const gmt = diff > 0 ? `GMT+${diff}` : `GMT-${Math.abs(diff)}`;
@@ -24,7 +21,6 @@
         };
 
         const tz = TZ_DICTIONARY[gmt] || gmt;
-
         const selfScript = document.currentScript;
         selfScript.parentNode.innerHTML = `${date}H ${tz}`;
       </script>

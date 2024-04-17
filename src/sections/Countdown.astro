@@ -1,31 +1,65 @@
 ---
 import LaVeladaLogo from "@/icons/la-velada.astro";
+
+const TIMESTAMP_END = 1714675200000;
 ---
 
 <section class="my-32 flex flex-col gap-y-10 justify-center items-center">
   <LaVeladaLogo class="text-primary" />
 
-  <div>
+  <div data-date={TIMESTAMP_END}>
     <div>
-      <span>00</span>
+      <span data-days>00</span>
       <span>Días</span>
     </div>
 
     <div>
-      <span>00</span>
+      <span data-hours>00</span>
       <span>Horas</span>
     </div>
 
     <div>
-      <span>00</span>
+      <span data-minutes>00</span>
       <span>Minutos</span>
     </div>
 
     <div>
-      <span>00</span>
+      <span data-seconds>00</span>
       <span>Segundos</span>
     </div>
   </div>
 </section>
 
-<script></script>
+<script>
+  const SECOND = 1000;
+  const MINUTE = SECOND * 60;
+  const HOUR = MINUTE * 60;
+  const DAY = HOUR * 24;
+
+  function init() {
+    const $countdown = document.querySelector("[data-date]");
+    if (!$countdown) return;
+
+    const $days = $countdown.querySelector("[data-days]");
+    const $hours = $countdown.querySelector("[data-hours]");
+    const $minutes = $countdown.querySelector("[data-minutes]");
+    const $seconds = $countdown.querySelector("[data-seconds]");
+
+    const timestamp = $countdown.getAttribute("data-date");
+    if (!timestamp) return;
+
+    const date = new Date(+timestamp).getTime();
+
+    function updateCountdown() {
+      const now = Date.now();
+      const diff = date - now;
+
+      if ($days instanceof HTMLElement) {
+        $days.innerHTML = Math.floor(diff / DAY).toString();
+      }
+    }
+    setInterval(updateCountdown, SECOND);
+  }
+
+  init();
+</script>
