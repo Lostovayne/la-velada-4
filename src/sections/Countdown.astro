@@ -60,24 +60,18 @@ const TIMESTAMP_END = 1714675200000;
       const now = Date.now();
       const diff = date - now;
 
-      if ($days instanceof HTMLElement) {
-        $days.innerHTML = Math.floor(diff / DAY).toString();
-      }
+      const CountArray = [
+        { el: $days, val: Math.floor(diff / DAY).toString() },
+        { el: $hours, val: Math.floor((diff % DAY) / HOUR).toString() },
+        { el: $minutes, val: Math.floor((diff % HOUR) / MINUTE).toString() },
+        { el: $seconds, val: Math.floor((diff % MINUTE) / SECOND).toString() },
+      ];
 
-      if ($hours instanceof HTMLElement) {
-        $hours.innerHTML = Math.floor((diff % DAY) / HOUR).toString();
-      }
-
-      if ($minutes instanceof HTMLElement) {
-        $minutes.innerHTML = Math.floor((diff % HOUR) / MINUTE).toString();
-      }
-
-      if ($seconds instanceof HTMLElement) {
-        $seconds.innerHTML = Math.floor((diff % MINUTE) / SECOND).toString();
-      }
+      CountArray.forEach(({ el, val }) => {
+        if (el instanceof HTMLElement) el.innerHTML = val;
+      });
     }
     setInterval(updateCountdown, SECOND);
-
     updateCountdown();
   }
 
