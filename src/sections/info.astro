@@ -4,10 +4,10 @@ import Twitch from "public/twitch.astro";
 
 <section class="flex font-medium text-primary gap-y-10 my-32 flex-col">
   <div class="flex items-center justify-center">
-    <a href="#"> <Twitch class="w-20 h-20" /></a>
+    <Twitch class="w-20 h-20" />
   </div>
 
-  <div class="grid  lg:[grid-template-columns:1fr_1.5fr_1fr]  uppercase gap-x-10 text-center">
+  <div class="grid lg:[grid-template-columns:1fr_1.5fr_1fr] uppercase gap-x-10 text-center">
     <article
       class="order-2 md:order-none flex md:flex-1 justify-center items-center text-xl py-10 md:py-20 px-10 border-y-2 border-primary"
     >
@@ -15,15 +15,16 @@ import Twitch from "public/twitch.astro";
     </article>
 
     <article
-      class="order-1 md:order-none 
+      class="order-1 md:order-none
       flex justify-center items-center text-4xl py-10 md:py-20 px-10 font-bold md:border-y-2 border-primary border-t-2"
     >
       <h5>
         <a
-          href="#"
+          href="www.miweb.com"
           target="_blank"
           class="hover:text-purple-800 transition-all"
           rel="noopener noreferrer nofollow"
+          aria-label="Sigue en directo en twitch.tv/ibai"
         >
           Síguelo en directo twitch.tv/ibai
         </a>
@@ -31,10 +32,9 @@ import Twitch from "public/twitch.astro";
     </article>
 
     <article
-      class="order-3 md:order-none  flex justify-center items-center text-xl py-10 md:py-20 px-10 border-b-2 md:border-y-2 border-primary"
+      class="order-3 md:order-none flex justify-center items-center text-xl py-10 md:py-20 px-10 border-b-2 md:border-y-2 border-primary"
     >
       <h5>Con la presencia de los boxeadores y boxeadoras</h5>
     </article>
   </div>
 </section>
-

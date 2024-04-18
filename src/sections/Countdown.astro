@@ -7,25 +7,31 @@ const TIMESTAMP_END = 1714675200000;
 <section class="my-32 flex flex-col gap-y-10 justify-center items-center">
   <LaVeladaLogo class="text-primary" />
 
-  <div data-date={TIMESTAMP_END}>
-    <div>
-      <span data-days>00</span>
-      <span>Días</span>
+  <div class="flex flex-row gap-x-1 text-primary uppercase font-bold" data-date={TIMESTAMP_END}>
+    <div class="flex flex-col justify-center items-center gap-y-2 w-16">
+      <span class="text-4xl tabular-nums" data-days>00</span>
+      <span class="text-xs text-center">Días</span>
     </div>
 
-    <div>
-      <span data-hours>00</span>
-      <span>Horas</span>
+    <span aria-hidden="true" class="mt-1 text-xl">:</span>
+
+    <div class="flex flex-col justify-center items-center gap-y-2 w-16">
+      <span class="text-4xl tabular-nums" data-hours>00</span>
+      <span class="text-xs text-center">Horas</span>
     </div>
 
-    <div>
-      <span data-minutes>00</span>
-      <span>Minutos</span>
+    <span aria-hidden="true" class="mt-1 text-xl">:</span>
+
+    <div class="flex flex-col justify-center items-center gap-y-2 w-16">
+      <span class="text-4xl tabular-nums" data-minutes>00</span>
+      <span class="text-xs text-center">Minutos</span>
     </div>
 
-    <div>
-      <span data-seconds>00</span>
-      <span>Segundos</span>
+    <span aria-hidden="true" class="mt-1 text-xl">:</span>
+
+    <div class="flex flex-col justify-center items-center gap-y-2 w-16">
+      <span class="text-4xl tabular-nums" data-seconds>00</span>
+      <span class="text-xs text-center">Segundos</span>
     </div>
   </div>
 </section>
@@ -57,8 +63,22 @@ const TIMESTAMP_END = 1714675200000;
       if ($days instanceof HTMLElement) {
         $days.innerHTML = Math.floor(diff / DAY).toString();
       }
+
+      if ($hours instanceof HTMLElement) {
+        $hours.innerHTML = Math.floor((diff % DAY) / HOUR).toString();
+      }
+
+      if ($minutes instanceof HTMLElement) {
+        $minutes.innerHTML = Math.floor((diff % HOUR) / MINUTE).toString();
+      }
+
+      if ($seconds instanceof HTMLElement) {
+        $seconds.innerHTML = Math.floor((diff % MINUTE) / SECOND).toString();
+      }
     }
     setInterval(updateCountdown, SECOND);
+
+    updateCountdown();
   }
 
   init();

@@ -14,13 +14,15 @@ import X from "../../public/x.astro";
   <ul class="flex flex-row gap-x-4 items-center">
     <li>
       <a
-        href="#"
+        href="www.miweb.com"
         target="_blank"
         class="text-primary inline-block hover:scale-105 transition-all hover:opacity-70"
         rel="noopener noreferrer"
         class="hover:text-primary"
+        aria-label="web de Instagram"
       >
         <Instagram />
+        <span class="sr-only"> Pagina web de Instagram </span>
       </a>
     </li>
     <li>
@@ -28,9 +30,11 @@ import X from "../../public/x.astro";
         class="text-primary inline-block hover:scale-105 transition-all hover:opacity-70"
         target="_blank"
         rel="noopener noreferrer"
-        href="#"
+        href="www.miweb.com"
+        aria-label="Web de Twitter"
       >
         <X />
+        <span class="sr-only"> Pagina web de Twitter </span>
       </a>
     </li>
   </ul>

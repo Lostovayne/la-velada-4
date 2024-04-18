@@ -31,6 +31,6 @@ const { id, class: classList, noEffect } = Astro.props as Props
 		>
 		</path>
 	</symbol>
-	{noEffect && <use href="#hero-logo-header" class="text-[#f1ffaa]/70 blur-xl md:blur-md" />}
+	{noEffect && <use href="#hero-logo-header"    class="text-[#f1ffaa]/70 blur-xl md:blur-md" />}
 	<use href="#hero-logo-header" class:list={noEffect ? "text-white" : "text-primary"}></use>
 </svg>
