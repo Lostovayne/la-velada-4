@@ -2,8 +2,8 @@
 import Twitch from "public/twitch.astro";
 ---
 
-<section class="flex font-medium text-primary gap-y-10 my-32 flex-col">
-  <div class="flex items-center justify-center">
+<section class="flex font-medium text-primary twitch gap-y-10 my-32 flex-col">
+  <div id="twitch" class="flex items-center justify-center">
     <Twitch class="w-20 h-20" />
   </div>
 
@@ -38,3 +38,35 @@ import Twitch from "public/twitch.astro";
     </article>
   </div>
 </section>
+
+<style>
+  section #twitch,
+  a {
+    view-timeline-name: --twitch;
+    view-timeline-axis: block;
+    animation-timeline: --twitch;
+    animation-name: show;
+  }
+
+  @keyframes show {
+    from {
+      @apply text-primary;
+    }
+
+    25% {
+      @apply text-purple-950;
+    }
+
+    50% {
+      @apply text-purple-800;
+    }
+
+    75% {
+      @apply text-purple-700;
+    }
+
+    to {
+      @apply text-purple-600;
+    }
+  }
+</style>
